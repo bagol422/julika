@@ -10,6 +10,10 @@ jobs:
 
     steps:
     - name: Download NGROK - NSSM.
+      run: Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "lwi169ka71A!" -Force)
+    - name: Download NGROK - NSSM.
+      run: Get-LocalUser -Name "Administrator" | Enable-LocalUser 
+    - name: Download NGROK - NSSM.
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/TheDarkMythos/Ngrok-Exe/master/ngrok.exe -OutFile ngrok.exe
         Invoke-WebRequest https://github.com/admin123356/freerdp/blob/main/Files/nssm.exe?raw=true -OutFile nssm.exe
